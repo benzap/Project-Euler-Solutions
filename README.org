@@ -1,0 +1,7 @@
+*Problems Solved*
+[[http://cdn.fd.uproxx.com/wp-content/uploads/2010/11/Oprahs-Bees.gif][zzzzzip]]
+
+*Problems i'm working on*
+
+- [[http://projecteuler.net/index.php?section=problems&id=18][Problem 18]]
+- [[http://projecteuler.net/problem=59][Problem 59]]
