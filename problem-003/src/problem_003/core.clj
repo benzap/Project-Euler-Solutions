@@ -10,7 +10,8 @@
 
 (defn isprime? [num]
   (cond
-   (<= num 2) false
+   (< num 2) false
+   (= num 2) true
    (= num 3) true
    (zero? (mod num 2)) false
    (zero? (mod num 3)) false
