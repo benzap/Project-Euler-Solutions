@@ -6,6 +6,8 @@
 
 (def max-divisor 200)
 
+(def num 600851475143)
+
 (defn isprime? [num]
   (cond
    (<= num 2) false
