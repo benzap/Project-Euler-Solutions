@@ -1,21 +1,26 @@
 (ns problem-003.core
+  (:require [clojure.math.numeric-tower :as math])
   (:gen-class))
 
 (def test-number 13195)
 
+(def max-divisor 200)
+
 (defn isprime? [num]
   (cond
-   (= num 0) false
-   (= num 1) false
+   (< num 2) false
    (= num 2) true
    (= num 3) true
-   (even? num) false
-   (let [num-seq (range 2 num)
-         num-mod (filter #(zero? (mod num %)) num-seq)]
+   (zero? (mod num 2)) false
+   (zero? (mod num 3)) false
+   (let [max-divisor (int (math/ceil (math/sqrt num)))
+         num-seq (range 5 max-divisor 6)
+         num-mod (filter #(or (zero? (mod num %))
+                              (zero? (mod num (+ 2 %)))) num-seq)]
      (empty? num-mod)) true
      :else false))
 
-(isprime? 13)
+(isprime? 29)
 
 (defn prime-factors [num]
   (let [seq-primes (filter #(isprime? %) (range num))]
