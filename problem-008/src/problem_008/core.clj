@@ -8,12 +8,12 @@
   "Converts a ascii character code into the integer representation"
   (- (int char) 48))
 
-(defn sum-of-digits [num]
+(defn product-of-digits [num]
   (let [str-num (str num)
         int-sequence (map char-to-num (seq str-num))]
-    (apply + int-sequence)))
+    (apply * int-sequence)))
 
-(sum-of-digits 1234)
+(product-of-digits 1234)
 
 (defn generate-5-digit-products [num]
   (let [str-num (str num)
@@ -21,7 +21,7 @@
         sum-bound 5]
     (for [x (range (- num-digits (dec sum-bound)))
           :let [y (+ x sum-bound)]]
-      (sum-of-digits (subs str-num x y)))))
+      (product-of-digits (subs str-num x y)))))
 
 (generate-5-digit-products 1111111)
 
