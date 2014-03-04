@@ -42,9 +42,41 @@
 
 (soln-right-product)
 
+(defn soln-down-product []
+  (for [j (range (- dimension 4)) i (range dimension)]
+    (apply * [(array-val i j)
+              (array-val i (+ j 1))
+              (array-val i (+ j 2))
+              (array-val i (+ j 3))
+              ])))
+
+(soln-down-product)
+
+(defn soln-right-diagonal-product []
+  (for [j (range (- dimension 4)) i (range (- dimension 4))]
+    (apply * [(array-val i j)
+              (array-val (+ i 1) (+ j 1))
+              (array-val (+ i 2) (+ j 2))
+              (array-val (+ i 3) (+ j 3))
+              ])))
+
+(soln-right-diagonal-product)
+
+(defn soln-left-diagonal-product []
+  (for [i (range 3 dimension) j (range (- dimension 4))]
+    (apply * [(array-val i j)
+              (array-val (+ i -1) (+ j 1))
+              (array-val (+ i -2) (+ j 2))
+              (array-val (+ i -3) (+ j 3))
+              ])))
+
+(soln-left-diagonal-product))
 
 (defn soln []
-  )
+  (apply max (concat (soln-right-product)
+                     (soln-down-product)
+                     (soln-right-diagonal-product)
+                     (soln-left-diagonal-product))))
 
 (defn -main
   "Problem 11"
